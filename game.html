@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Monster Game</title>
+    <link rel="stylesheet" type="text/css" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css">
+    <link rel="stylesheet" type="text/css" href="style.css">
+</head>
+<body>
+    <!--player and monster-->
+    <div id="app" class="m-5">
+        <div class="row mt-3">
+            <div class="col-md-6 text-center">
+               <h1>YOU</h1>
+               <div class="outerDiv">
+                  <div class="playerLive"
+                  :style="{width:playerHealth+'%'}"
+                  >{{playerHealth}}
+                </div>
+               </div>
+            </div>
+            <div class="col-md-6 text-center">
+                <h1>MONSTER</h1>
+                <div class="outerDiv">
+                   <div class="playerLive" 
+                   :style="{width:monsterHealth+'%'}">
+                   {{monsterHealth}}
+                </div>
+                </div>
+            </div>
+         
+        </div>
+        <!-- begin the game-->
+        <div class="row mt-3" v-if="!startingGame">
+            <div class="col-md-12 actions text-center">
+               <button  class="btn btn-success start-btn" @click="startingGame=!startingGame">Start Game</button>    
+            </div>
+    
+        </div>
+        <!-- actions -->
+        <div class="row mt-3" v-else>
+            <div class="col-md-12 actions text-center">
+               <button  class="btn btn-warning" @click="attack">Attack</button>
+               <button  class="btn btn-danger" @click="specialAttack">Special Attack</button>
+               <button  class="btn btn-success" @click="heal">Heal</button>
+               <button class="btn btn-default" @click="giveUp">Give Up</button>
+    
+            </div>
+    
+        </div>
+        <!--Log section-->
+        <div class="row mt-3" v-if="logs.length > 0">
+            <div class="col-md-12 actions text-center">
+                <ul type="none">
+                 <li v-for="log in logs"
+                 :class="{playerLog:log.player,monsterlog:!log.player}"
+                 >{{log.text}} => {{log.damage}}</li>
+                </ul>
+    
+            </div>
+        </div>
+
+    </div>
+
+
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js"></script>
+    <script src="vue.js"></script>
+    <script src="game.js"></script>
+</body>
+</html>

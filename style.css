@@ -1,0 +1,41 @@
+.playerLive{
+    /* height:37px; */
+    width:100%;
+    background-color: darkgreen;
+    transition: width .6s;
+    color:white;
+    font-size: medium;
+    padding-top: 8px;
+    padding-bottom: 8px;
+   
+   }
+   .outerDiv{
+    background-color: lightgrey;
+   }
+   .actions{
+    width: 100%;
+    box-shadow: 2px 2px 2px 2px lightgrey;
+    padding-top: 21px;
+    padding-bottom: 21px;
+    margin:auto;
+   }
+   .btn{
+    border: 1px solid lightgrey;
+   }
+   .playerLog{
+       background-color: lightblue;
+       color:blue;
+       font-weight: bold;
+   }
+   .monsterlog{
+       background-color:lightpink;
+       color:darkmagenta;
+       font-weight: bold;
+
+   }
+   li{
+       margin:8px;
+   }
+   .start-btn{
+    padding: 0.375rem 2.75rem;
+   }
